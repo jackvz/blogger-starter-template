@@ -33,6 +33,9 @@
         abbr {
           text-decoration: none;
         }
+        .blog-pager, .blog-feeds {
+          display: none;
+        }
       ]]>
     </b:skin>
 
@@ -83,7 +86,16 @@
           <h1>Page</h1>
         </b:includable>
       </b:widget>
-      <b:widget id='Blog2' locked='true' type='Blog'/>
+      <b:widget id='Blog2' locked='true' type='Blog'>
+        <b:includable id='main'>
+          <b:loop var='item' values='data:posts'>
+            <b:include name='post' data='item' />
+          </b:loop>
+        </b:includable>
+        <b:includable id='post' var='post'>
+          <data:post.body />
+        </b:includable>
+      </b:widget>
     </b:section>
 
     <b:section class='container' id='ContainerPageContent' name='Page Content' showaddelement='true' cond='data:blog.pageType == "static_page"'/>

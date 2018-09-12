@@ -12,7 +12,7 @@
           <Group description="General">
             <Variable name="siteFont" description="Font Style" type="font" default="14px 'Open Sans',sans-serif" />
             <Variable name="siteColour" description="Colour" type="color" default="#000000" />
-            <Variable name="siteLinkColour" description="Link Colour" type="color" default="#0000ff" />
+            <Variable name="siteLinkColour" description="Link Colour" type="color" default="#000000" />
             <Variable name="siteBackgroundColour" description="Background Colour" type="color" default="#ffffff" variants="#ff0000,#00ff00" />
           </Group>
         */
@@ -59,16 +59,16 @@
 
     <!-- Begin: Home -->
 
-    <b:section class='container' id='ContainerHomeFixedContent' name='Home Fixed Content' showaddelement='false' cond='data:blog.url == data:blog.homepageUrl'>
-      <b:widget id='HTML1' title='Home Header (Not Editable)' type='HTML' locked='true'>
+    <b:section class='container' id='ContainerHomeContent' name='Home Content' showaddelement='true' cond='data:blog.url == data:blog.homepageUrl'>
+      <b:widget id='HTML1' title='Home Header' type='HTML' locked='false'>
+        <b:widget-settings>
+          <b:widget-setting name='content'><![CDATA[<h1>Home</h1>]]></b:widget-setting>
+        </b:widget-settings>
         <b:includable id='main'>
-          <h1>Home</h1>
+          <data:content/>
         </b:includable>
       </b:widget>
       <b:widget id='Blog1' locked='true' type='Blog'/>
-    </b:section>
-
-    <b:section class='container' id='ContainerHomeContent' name='Home Content' showaddelement='true' cond='data:blog.url == data:blog.homepageUrl'>
       <b:widget id='PageList1' locked='false' title='Pages' type='PageList'/>
       <b:widget id='Label1' locked='false' title='Labels' type='Label'/>
       <b:widget id='FeaturedPost1' locked='false' title='Featured post' type='FeaturedPost'/>
@@ -80,100 +80,98 @@
 
     <!-- Begin: Page -->
 
-    <b:section class='container' id='ContainerPageFixedContent' name='Page Fixed Content' showaddelement='false' cond='data:blog.pageType == "static_page"'>
-      <b:widget id='HTML2' title='Page Header (Not Editable)' type='HTML' locked='true'>
+    <b:section class='container' id='ContainerPageContent' name='Page Content' showaddelement='true' cond='data:blog.pageType == "static_page"'>
+      <b:widget id='HTML2' title='Page Header' type='HTML' locked='false'>
+        <b:widget-settings>
+          <b:widget-setting name='content'><![CDATA[<h1>Page</h1>]]></b:widget-setting>
+        </b:widget-settings>
         <b:includable id='main'>
-          <h1>Page</h1>
+          <data:content/>
         </b:includable>
       </b:widget>
-      <b:widget id='Blog2' locked='true' type='Blog'>
-        <b:includable id='main'>
-          <b:loop var='item' values='data:posts'>
-            <b:include name='post' data='item' />
-          </b:loop>
-        </b:includable>
-        <b:includable id='post' var='post'>
-          <data:post.body />
-        </b:includable>
-      </b:widget>
+      <b:widget id='Blog2' locked='true' type='Blog'/>
+      <b:widget id='BlogArchive2' locked='false' title='Blog Archive' type='BlogArchive'/>
     </b:section>
-
-    <b:section class='container' id='ContainerPageContent' name='Page Content' showaddelement='true' cond='data:blog.pageType == "static_page"'/>
 
     <!-- End: Page -->
     
     <!-- Begin: Post -->
 
-    <b:section class='container' id='ContainerPostFixedContent' name='Post Fixed Content' showaddelement='false' cond='data:blog.pageType == "item"'>
-      <b:widget id='HTML3' title='Post Header (Not Editable)' type='HTML' locked='true'>
+    <b:section class='container' id='ContainerPostContent' name='Post Content' showaddelement='true' cond='data:blog.pageType == "item"'>
+      <b:widget id='HTML3' title='Post Header' type='HTML' locked='false'>
+        <b:widget-settings>
+          <b:widget-setting name='content'><![CDATA[<h1>Post</h1>]]></b:widget-setting>
+        </b:widget-settings>
         <b:includable id='main'>
-          <h1>Post</h1>
+          <data:content/>
         </b:includable>
       </b:widget>
       <b:widget id='Blog3' locked='true' type='Blog'/>
     </b:section>
 
-    <b:section class='container' id='ContainerPostContent' name='Post Content' showaddelement='true' cond='data:blog.pageType == "item"'/>
-
     <!-- End: Post -->
 
     <!-- Begin: Archive -->
 
-    <b:section class='container' id='ContainerArchiveFixedContent' name='Archive Fixed Content' showaddelement='false' cond='data:blog.pageType == "archive"'>
-      <b:widget id='HTML4' title='Archive Header (Not Editable)' type='HTML' locked='true'>
+    <b:section class='container' id='ContainerArchiveContent' name='Archive Content' showaddelement='true' cond='data:blog.pageType == "archive"'>
+      <b:widget id='HTML4' title='Archive Header' type='HTML' locked='false'>
+        <b:widget-settings>
+          <b:widget-setting name='content'><![CDATA[<h1>Archive</h1>]]></b:widget-setting>
+        </b:widget-settings>
         <b:includable id='main'>
-          <h1>Archive</h1>
+          <data:content/>
         </b:includable>
       </b:widget>
       <b:widget id='Blog4' locked='true' type='Blog'/>
     </b:section>
 
-    <b:section class='container' id='ContainerArchiveContent' name='Archive Content' showaddelement='true' cond='data:blog.pageType == "archive"'/>
-
     <!-- End: Archive -->
 
     <!-- Begin: Error -->
 
-    <b:section class='container' id='ContainerErrorFixedContent' name='Error Fixed Content' showaddelement='false' cond='data:blog.pageType == "error_page"'>
-      <b:widget id='HTML5' title='Error Header (Not Editable)' type='HTML' locked='true'>
+    <b:section class='container' id='ContainerErrorContent' name='Error Content' showaddelement='true' cond='data:blog.pageType == "error_page"'>
+      <b:widget id='HTML5' title='Error Header' type='HTML' locked='false'>
+        <b:widget-settings>
+          <b:widget-setting name='content'><![CDATA[<h1>Something went wrong</h1>]]></b:widget-setting>
+        </b:widget-settings>
         <b:includable id='main'>
-          <h1>Something went wrong</h1>
+          <data:content/>
         </b:includable>
       </b:widget>
       <b:widget id='Blog5' locked='true' type='Blog'/>
     </b:section>
 
-    <b:section class='container' id='ContainerErrorContent' name='Error Content' showaddelement='true' cond='data:blog.pageType == "error_page"'/>
-
     <!-- End: Error -->
 
     <!-- Begin: Label -->
 
-    <b:section class='container' id='ContainerLabelResultsFixedContent' name='Label Results Fixed Content' showaddelement='false' cond='data:blog.searchLabel'>
-      <b:widget id='HTML6' title='Label Results Header (Not Editable)' type='HTML' locked='true'>
+    <b:section class='container' id='ContainerLabelResultsContent' name='Label Results Content' showaddelement='true' cond='data:blog.searchLabel'>
+      <b:widget id='HTML6' title='Label Results Header' type='HTML' locked='false'>
+        <b:widget-settings>
+          <b:widget-setting name='content'><![CDATA[<h1>Posts by label</h1>]]></b:widget-setting>
+        </b:widget-settings>
         <b:includable id='main'>
-          <h1>Posts by label</h1>
+          <data:content/>
         </b:includable>
       </b:widget>
       <b:widget id='Blog6' locked='true' type='Blog'/>
     </b:section>
 
-    <b:section class='container' id='ContainerLabelResultsContent' name='Label Results Content' showaddelement='true' cond='data:blog.searchLabel'/>
-
     <!-- End: Label -->
 
     <!-- Begin: Search -->
 
-    <b:section class='container' id='ContainerSearchResultsFixedContent' name='Search Results Fixed Content' showaddelement='false' cond='data:blog.searchQuery'>
-      <b:widget id='HTML7' title='Search Results Header (Not Editable)' type='HTML' locked='true'>
+    <b:section class='container' id='ContainerSearchResultsContent' name='Search Results Content' showaddelement='true' cond='data:blog.searchQuery'>
+      <b:widget id='HTML7' title='Search Results Header' type='HTML' locked='false'>
+        <b:widget-settings>
+          <b:widget-setting name='content'><![CDATA[<h1>Search results</h1>]]></b:widget-setting>
+        </b:widget-settings>
         <b:includable id='main'>
-          <h1>Search results</h1>
+          <data:content/>
         </b:includable>
       </b:widget>
       <b:widget id='Blog7' locked='true' type='Blog'/>
     </b:section>
-
-    <b:section class='container' id='ContainerSearchResultsContent' name='Search Results Content' showaddelement='true' cond='data:blog.searchQuery'/>
 
     <!-- End: Search -->
 
